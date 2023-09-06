@@ -15,9 +15,27 @@
   </div>
 
   <div class="button-container">
-    
-    <ion-button color="dark">Certamenes</ion-button>
-    <ion-button color="dark">Controles</ion-button>
-    <ion-button color="dark">Trabajos Practicos</ion-button>
+
+    <ion-button color="dark" id="certamenes">Certamenes</ion-button>
+    <ion-button color="dark" id="controles">Controles</ion-button>
+    <ion-button color="dark" id="trabajos">Trabajos Practicos</ion-button>
+
+    <ion-modal trigger="certamenes" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+      <ng-template>
+        <div class="block">En desarrollo</div>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal trigger="controles" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+      <ng-template>
+        <div class="block">En desarrollo</div>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal trigger="trabajos" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+      <ng-template>
+        <div class="block">En desarrollo</div>
+      </ng-template>
+    </ion-modal>
   </div>
 </ion-content>
