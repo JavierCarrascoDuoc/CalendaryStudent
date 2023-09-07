@@ -1,8 +1,15 @@
+
+
 ion-content {
   --background: linear-gradient(90deg, #fff7ad, #ffa9f9);
 }
 
+
+.custom-margin {
+  margin-top: 35px;}
+
 .header {
+  
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 
@@ -34,4 +41,23 @@ ion-content {
   ion-button:active {
     transform: scale(0.9);
   }
+}
+
+ion-modal {
+  --height: 150px;
+}
+
+.button {
+  --color:black;
+}
+
+.diseño-alerta {
+  --ion-background-color: black;
+
+}
+
+.block {
+  margin: 25px;
+  text-align: center;
+
 }
