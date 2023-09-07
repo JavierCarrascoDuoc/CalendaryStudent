@@ -10,13 +10,13 @@
   <div class="center-container">
     <ion-card class="tarjeta-transparente">
       <ion-card-header >
-        <ion-card-title>Iniciar sesión</ion-card-title>
+        <ion-card-title class="credenciales-login">Iniciar sesión</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
           <ion-item class="ion-transparent">
             <ion-label position="floating">Correo electrónico</ion-label>
-            <ion-input type="email" ngModel required name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
+            <ion-input type="email" [(ngModel)]="userEmail" required name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
           </ion-item>
           <div *ngIf="email.invalid && (email.dirty || email.touched)">
             <p>Por favor, ingrese un correo electrónico válido</p>

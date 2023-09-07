@@ -32,8 +32,12 @@
 
   .tarjeta-transparente {
     
-    background-color: transparent !important; /* Hace que el fondo sea transparente */
+    background-color: whitesmoke;
     
+  }
+
+  .input-white-background {
+    --background: #ffffff;
   }
 
 

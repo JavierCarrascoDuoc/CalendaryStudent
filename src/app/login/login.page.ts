@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +10,25 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router) { }
+  userEmail: string = '';
+
+  constructor(private router: Router, private navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    if (form.valid) {
-      
-      this.router.navigate(['/home']);
-    }
+    
+    // ... lógica de validación o inicio de sesión ...
+
+    // Navega a la página 'home' pasando el email como parámetro
+    this.navCtrl.navigateForward(['/home'], {
+      queryParams: {
+          email: this.userEmail
+      }
+  });
+    
   }
 
 }
+

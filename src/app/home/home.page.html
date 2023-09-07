@@ -5,19 +5,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
   <div class="header" >
-    <h1 class="custom-margin">¡Bienvenido a tu Calendario Estudiantil!</h1>
+    <h1 class="custom-margin">¡Bienvenido a tu Calendario Estudiantil, {{ userEmail }}!</h1>
+
     <img src="../../assets/img/books.png" alt="Imagen de bienvenida">
   </div>
 
   <div class="button-container">
 
-    <ion-button color="dark" id="open-modal">Certamenes</ion-button>
+    <ion-button color="dark" (click)="presentAlert('Certamenes')" >Certamenes</ion-button>
     <ion-button color="dark" (click)="presentAlert('Controles')" >Controles</ion-button>
     <ion-button color="dark" (click)="presentAlert('Trabajos Practicos')" >Trabajos Practicos</ion-button>
     
-
-    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Aun no esta disponible esta seccion </div>
-      </ng-template>
-    </ion-modal>
+  </div>  
