@@ -1,6 +1,6 @@
 .center-container {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -8,9 +8,39 @@
   }
   
   ion-content {
+    
     --background: none;
   }
   
   .gradient-background {
     background: linear-gradient(90deg, #fff7ad, #ffa9f9);
+    
   }
+
+  .header {
+  
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 200px;
+
+  
+    h1 {
+      color: black;
+    }
+  
+  }
+
+  .tarjeta-transparente {
+    
+    background-color: whitesmoke;
+    
+  }
+
+  .input-white-background {
+    --background: #ffffff;
+  }
+
+
+
+
+
