@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'product-add',
+    loadChildren: () => import('./product-add/product-add.module').then( m => m.ProductAddPageModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -33,11 +37,6 @@ const routes: Routes = [
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
-<<<<<<< HEAD
-    path: 'product-add',
-    loadChildren: () => import('./product-add/product-add.module').then( m => m.ProductAddPageModule)
-  },
-  {
     path: 'product-all',
     loadChildren: () => import('./product-all/product-all.module').then( m => m.ProductAllPageModule)
   },
@@ -52,11 +51,6 @@ const routes: Routes = [
   {
     path: 'product-list',
     loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
-=======
-    path:'**',
-    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
-
->>>>>>> d7c929811ee001e3a8338900d44ed63c488db539
   },
 ];
 
