@@ -41,11 +41,11 @@ const routes: Routes = [
     loadChildren: () => import('./product-all/product-all.module').then( m => m.ProductAllPageModule)
   },
   {
-    path: 'product-detail',
+    path: 'product-detail/:id',
     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   },
   {
-    path: 'product-edit',
+    path: 'product-edit/:id',
     loadChildren: () => import('./product-edit/product-edit.module').then( m => m.ProductEditPageModule)
   },
   {
