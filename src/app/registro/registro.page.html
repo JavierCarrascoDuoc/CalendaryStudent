@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+    <!-- icono al final back button-->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--ion-item = línea -->
+  <ion-item>
+    <!--Label Texto generalmente asociado a un input -->
+    <ion-label>Usuario</ion-label>
+    <!--input Campo de entrada    Type =>  Typo del objeto, Texto, pasword, number, etc    
+          placeholder => mensaje en el campo de entrada, el                   
+          cual desaparece cuando se ingresa datos    
+          [(ngModel)] => nombre del campo de DataBind (enlace de datos) -->
+    <ion-input type="text" placeholder="Nombre del Usuario" [(ngModel)]="txUsuario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>Clave</ion-label>
+    <!-- type password, tipo clave -->
+    <ion-input type="password" [(ngModel)]="txClave" placeholder="Clave del Usuario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed>Sitio Web</ion-label>
+    <!-- type url -->
+    <ion-input type="url" [(ngModel)]="txWeb" placeholder="Sitio Web Empresa">
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <!-- type email -->
+    <ion-input type="email" [(ngModel)]="txMail" placeholder="Mail del Usuario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Telefono</ion-label>
+    <!-- type telefono -->
+    <ion-input type="tel" [(ngModel)]="txTeleFono" placeholder="Teléfono del Usuario"></ion-input> </ion-item>
+  <ion-item>
+    <ion-label stacked>Edad</ion-label>
+    <!-- type number -->
+    <ion-input type="number" [(ngModel)]="txEdad" placeholder="Edad Actual"></ion-input>
+  </ion-item>
+  <ion-item>
+    <!-- funActualizar(), Función que se ejecutará en un TypeScript -->
+    <ion-button  (click)="funActualizar()" color="danger" expand="block"> Actualizar</ion-button>
+  </ion-item>
+  <!--{{ msg }} => nombre del campo de DataBind (enlace de datos)    
+            la diferencia es que no es un campo de input -->
+  <p>Mensaje {{ msg }}</p>
+</ion-content>
