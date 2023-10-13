@@ -20,7 +20,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Apellido</ion-label>
-      <ion-input type="number" [(ngModel)]="usuario.apellido" formControlName="user_lastname"></ion-input>
+      <ion-input type="text" [(ngModel)]="usuario.apellido" formControlName="user_lastname"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Email</ion-label>
@@ -28,7 +28,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Clave</ion-label>
-      <ion-input type="number" [(ngModel)]="usuario.clave" formControlName="user_clave"></ion-input>
+      <ion-input type="text" [(ngModel)]="usuario.clave" formControlName="user_clave"></ion-input>
     </ion-item>
     <ion-button type="submit" shape="round" color="primary" expand="block" [disabled]="!userForm.valid">Submit</ion-button>
   </form>
