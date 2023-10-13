@@ -28,10 +28,7 @@ const routes: Routes = [
     path: 'access',
     loadChildren: () => import('./access/access.module').then( m => m.AccessPageModule)
   },
-  {
-    path: '',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+  
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
@@ -52,6 +49,32 @@ const routes: Routes = [
     path: 'product-list',
     loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
   },
+  {
+    path: 'usuario-add',
+    loadChildren: () => import('./usuario-add/usuario-add.module').then( m => m.UsuarioAddPageModule)
+  },
+  {
+    path: 'usuario-all',
+    loadChildren: () => import('./usuario-all/usuario-all.module').then( m => m.UsuarioAllPageModule)
+  },
+  {
+    path: 'usuario-detail',
+    loadChildren: () => import('./usuario-detail/usuario-detail.module').then( m => m.UsuarioDetailPageModule)
+  },
+  {
+    path: 'usuario-edit',
+    loadChildren: () => import('./usuario-edit/usuario-edit.module').then( m => m.UsuarioEditPageModule)
+  },
+  {
+    path: 'usuario-list',
+    loadChildren: () => import('./usuario-list/usuario-list.module').then( m => m.UsuarioListPageModule)
+  },
+
+  {
+    path: '',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+
 ];
 
 @NgModule({
