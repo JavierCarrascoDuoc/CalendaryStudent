@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from './model/Usuario';
+import { Usuario} from './model/Usuario';
 
 // Importamos  las librerías necesarias
 import { Observable, of, throwError } from 'rxjs';
@@ -25,10 +25,10 @@ export class UsuarioServiceService {
     };
   }
 
-  // Método Agregar producto, y devuelve un observable del tipo Producto
+  // Método Agregar usuario, y devuelve un observable del tipo Producto
   // Debe ser un Observable si deses suscribir este método en otro lado
   addUsuario(usuario: Usuario): Observable<Usuario> {
-    console.log("Res-api Enviando AddUsuario : ", usuario); // <-- added missing semicolon
+    console.log("Res-api Enviando AddUsuario : ", usuario);
     // Ojo No lo ejecuta lo declara
     // El Pipe lo intercepta
     return this.http.post<Usuario>(apiUrl, usuario, httpOptions)
@@ -36,26 +36,26 @@ export class UsuarioServiceService {
         // tap intersecta la respuesta si no hay error
         tap((usuario: Usuario) => console.log('added usuario w/:', usuario)),
         // En caso de que ocurra Error
-        catchError(this.handleError<Usuario>('addProduct'))
+        catchError(this.handleError<Usuario>('addUsuario'))
       );
   }
 
-  // Obtenemos todos los Productos
+  // Obtenemos todos los Usuarios
   getUsuarios(): Observable<Usuario[]> {
     console.log("getUsuarios ()");
     return this.http.get<Usuario[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('fetched users')),
+        tap(heroes => console.log('fetched usuarios')),
         catchError(this.handleError('getUsuarios', []))
       );
   }
 
 
   //  Obtener un Producto
-  getUsuario(id: String): Observable<Usuario> {
+  getUsuario(id: string): Observable<Usuario> {
     //const url = '${apiUrl}/${id}';
-    //return this.http.get<usuario>(url).pipe(
-    console.log("getProduct ID:" + id);
+    //return this.http.get<Producto>(url).pipe(
+    console.log("getUsuario ID:" + id);
     return this.http.get<Usuario>(apiUrl + "/" + id)
       .pipe(
         tap(_ => console.log('fetched usuario id=${id}')),
@@ -63,13 +63,13 @@ export class UsuarioServiceService {
       );
   }
 
-  deleteUsuario(id: number): Observable<Usuario> {
+  deleteUsuario(id: string): Observable<Usuario> {
     //const url = '${apiUrl}/${id}';
-    //return this.http.delete<usuario>(url, httpOptions).pipe(
+    //return this.http.delete<Usuario>(url, httpOptions).pipe(
     return this.http.delete<Usuario>(apiUrl + "/" + id, httpOptions)
       .pipe(
         tap(_ => console.log('deleted usuario id=${id}')),
-        catchError(this.handleError<Usuario>('deleteProduct'))
+        catchError(this.handleError<Usuario>('deleteUsuario'))
       );
   }
 

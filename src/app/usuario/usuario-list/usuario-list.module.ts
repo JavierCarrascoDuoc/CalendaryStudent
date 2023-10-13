@@ -8,11 +8,17 @@ import { UsuarioListPageRoutingModule } from './usuario-list-routing.module';
 
 import { UsuarioListPage } from './usuario-list.page';
 
+// Agregamos Librería CDK
+//import { ScrollingModule } from '@angular/cdk/scrolling';
+//import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+     //ScrollingModule,  // <=====
+    //DragDropModule,   // <=====
     UsuarioListPageRoutingModule
   ],
   declarations: [UsuarioListPage]

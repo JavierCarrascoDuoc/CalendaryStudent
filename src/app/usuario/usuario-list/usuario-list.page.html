@@ -22,11 +22,11 @@
   </ion-item>
   <ion-list padding>
     <!-- Recorremos el arreglo de registros utilizando item-->
-    <ion-item *ngFor="let p of usuarios">
+    <ion-item *ngFor="let u of usuario">
       <!-- Icono al inicio (start)-->
       <ion-icon name="star" slot="start"></ion-icon>
       <!-- Campos de item -->
-      <ion-label>{{u.nombre}}</ion-label>
+      <ion-label>{{u.email}}</ion-label>
       <!-- Icono al final -->
       <ion-icon name="information-circle" slot="end"></ion-icon>
       <!-- routerlink salta a otra pagina-->

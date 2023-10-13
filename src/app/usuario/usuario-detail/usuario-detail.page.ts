@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../usuario/model/Usuario';
-import { UsuarioServiceService } from '../usuario/usuario.service';
+
+// Import a utilizar 
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, AlertController } from '@ionic/angular';
+import { Usuario } from '../model/Usuario';
+import { UsuarioServiceService } from '../usuario.service';
 
 
 @Component({
@@ -11,15 +13,13 @@ import { LoadingController, AlertController } from '@ionic/angular';
   styleUrls: ['./usuario-detail.page.scss'],
 })
 export class UsuarioDetailPage implements OnInit {
-
-
   // Creamos registro a utilizar en el Html
   usuario: Usuario = {
-    id: 1511
-    , nombre: 'Harrys el Magnifico'
-    , apellido: 'El Ingenioso'
-    , email: 'a@a.cl'
-    , clave:'asd123'
+    id:"macarena@soco.cl"
+    , first_name: "Macarena Constanza"
+    , last_name: "Macarena Constanza"
+    , email: "macarena@soco.cl"
+    , clave: 123456 
   };
 
   // Injectamos Librerías a utilizar
@@ -33,11 +33,11 @@ export class UsuarioDetailPage implements OnInit {
 
   // En el OnInit, ejecutamos la lectura
   ngOnInit() {
-    this.getProduct();
+    this.getUsuario();
   }
 
 // Método que permite leer el producto
-  async getProduct() {
+  async getUsuario() {
     console.log("getUsuario **************** ParamMap ID:" + this.route.snapshot.paramMap.get('id'));
     // Creamos un Wait
     const loading = await this.loadingController.create({ message: 'Loading...' });
@@ -62,12 +62,12 @@ export class UsuarioDetailPage implements OnInit {
   }
 
   // El Html invoca el método delete
-  async delete(id: number) {
+  async delete(id: string) {
     // Confirma Primero
     this.presentAlertConfirm(id, 'Confirme la Eliminación, De lo cantrario Cancele');
   }
   // Creamos una rutina para confirmar la eliminación
-  async presentAlertConfirm(id: number, msg: string) {
+  async presentAlertConfirm(id: string, msg: string) {
     const alert = await this.alertController.create({
       header: 'Warning!', // Título
       message: msg,   // Mensaje
@@ -86,7 +86,7 @@ export class UsuarioDetailPage implements OnInit {
   }
 
   // Es invocado desde el Alert
-  async deleteConfirmado(id: number) {
+  async deleteConfirmado(id: string) {
     alert("Eliminando " + id)
     const loading = await this.loadingController.create({
       message: 'Loading...'
@@ -95,16 +95,17 @@ export class UsuarioDetailPage implements OnInit {
     await this.restApi.deleteUsuario(id)
       .subscribe({
         next: (res) => {
-          console.log("Error DetailProduct Página", res);
+          console.log("Error DetailUsuario Página", res);
           loading.dismiss();
-          this.router.navigate(['/product-list']);
+          this.router.navigate(['/usuario-list']);
         }
         , complete: () => { }
         , error: (err) => {
-          console.log("Error DetailProduct Página", err);
+          console.log("Error DetailUsuario Página", err);
           loading.dismiss(); //Elimina la espera
         }
 
       })
   }
 }
+

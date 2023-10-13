@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+// Importamos Librerías
 import { LoadingController } from '@ionic/angular';
-import { Usuario } from '../usuario/model/Usuario';
-import { UsuarioServiceService } from '../usuario/usuario.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from '../model/Usuario';
+//import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { UsuarioServiceService } from '../usuario.service';
 
 
 @Component({
@@ -11,9 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./usuario-list.page.scss'],
 })
 export class UsuarioListPage implements OnInit {
-
   // Creamos la Variable para el Html
-  usuarios: Usuario[] = [];
+  usuario: Usuario[] = [];
   // Injectamos Librerias
   constructor(public restApi: UsuarioServiceService
     , public loadingController: LoadingController
@@ -26,7 +28,7 @@ export class UsuarioListPage implements OnInit {
 
   // Método  que rescta los productos
   async getUsuarios() {
-    console.log("Entrando :getUsuarios");
+    console.log("Entrando :getUsuario");
     // Crea un Wait (Esperar)
     const loading = await this.loadingController.create({
       message: 'Harrys Loading...'
@@ -40,8 +42,8 @@ export class UsuarioListPage implements OnInit {
         next: (res) => { 
           console.log("Res:" + res);
   // Si funciona asigno el resultado al arreglo productos
-          this.usuarios = res;
-          console.log("thisUsuarios:",this.usuarios);
+          this.usuario = res;
+          console.log("thisProductos:",this.usuario);
           loading.dismiss();
         }
         , complete: () => { }

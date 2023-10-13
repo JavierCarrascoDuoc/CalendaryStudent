@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UsuarioAllPage } from './usuario-all.page';
 
-
 const routes: Routes = [
   {
     path: '',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usuario } from '../usuario/model/Usuario';
+import { Usuario } from '../model/Usuario';
 
-import { UsuarioServiceService } from '../usuario/usuario.service';
+import { UsuarioServiceService } from '../usuario.service';
 
 
 @Component({
@@ -16,14 +16,14 @@ export class UsuarioAddPage implements OnInit {
   //Creamos una variable del tipo FormGroup
   // ! ==> Con esto le decimos a TS, que sabemos que la variable no esta inicializada
   //          y que estamos seguro que cuando se ejecute no será null
-  userForm!: FormGroup;
+  usuarioForm!: FormGroup;
   // Generalmente se usa una interface, sin embargo para jugar utilizaremos  una clase
   usuario: Usuario = {
-    id: 1511
-    , nombre: 'Javier'
-    , apellido: 'Carrasco'
-    , email: 'ja.carrascog@duocuc.cl'
-    , clave: '123456'
+    id: "macarena@soco.cl"
+    , first_name: 'Macarena Constanza'
+    , last_name: 'Piña'
+    , email: "macarena@soco.cl"
+    , clave:  123456
   };
 
   // Injectamos FormBuilder, el cual nos permitirá realizar validaciones                         
@@ -39,11 +39,11 @@ export class UsuarioAddPage implements OnInit {
   //    por medio de formBuilder injectado en el constructor
   ngOnInit() {
     // Especificamos que todos los campos son obligatorios
-    this.userForm = this.formBuilder.group({
-      "prod_name": [null, Validators.required],
-      'prod_desc': [null, Validators.required],
-      'prod_price': [null, Validators.required],
-      'prod_cantidad': [null, Validators.required]
+    this.usuarioForm = this.formBuilder.group({
+      "usuario_first_name": [null, Validators.required],
+      'usuario_last_name': [null, Validators.required],
+      'usuario_email': [null, Validators.required],
+      'usuario_clave': [null, Validators.required]
     });
   }
   // se ejecutará cuando presione el Submit
@@ -73,7 +73,7 @@ export class UsuarioAddPage implements OnInit {
         }
         , complete: () => { }
         , error: (err) => {
-          console.log("Error AddUsuario Página",err);
+          console.log("Error AddProduct Página",err);
           loading.dismiss(); //Elimina la espera
         }
       });
