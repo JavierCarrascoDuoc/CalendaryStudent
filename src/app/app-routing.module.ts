@@ -85,7 +85,15 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'camara',
+    loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },
+  {
+    path: 'localizacion',
+    loadChildren: () => import('./localizacion/localizacion.module').then( m => m.LocalizacionPageModule)
+  },
+
 
 ];
 

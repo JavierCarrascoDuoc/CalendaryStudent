@@ -1,0 +1,8 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "calendaryStudent",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https"
+	}
+}
