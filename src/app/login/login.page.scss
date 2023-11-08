@@ -1,15 +1,29 @@
 .center-container {
     position: absolute;
-    top: 25%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    
   }
   
   ion-content {
     
     --background: none;
+  }
+  
+  .tarjeta-transparente {
+    background: linear-gradient(90deg, #fff7ad, #ffa9f9);
+    border-style: ridge;
+    border-width: 2px;
+    margin-top: -50px;
+    
+  }
+
+  .ion-transparent {
+    background: linear-gradient(90deg, #fff7ad, #ffa9f9);
+
   }
   
   .gradient-background {
@@ -21,11 +35,12 @@
   
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 200px;
+    margin-top: 50px;
 
   
     h1 {
       color: black;
+      font-weight: bold;
     }
   
   }
@@ -40,7 +55,12 @@
     --background: #ffffff;
   }
 
-
-
+  .credenciales-login { 
+    color: black;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    
+  }
 
 
