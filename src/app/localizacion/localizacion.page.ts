@@ -32,3 +32,5 @@ Geolocation.getCurrentPosition(options).then((res)=>{
   }
 
 }
+
+
