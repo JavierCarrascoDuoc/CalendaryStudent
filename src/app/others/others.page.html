@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>others</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">others</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+  <ion-button (click)="takePhoto()">Tomar foto</ion-button>
+  <div *ngIf="photo">
+    Foto:
+    <img [src]="photo" />
+  </div>
+  <br>
+  <br>
+  <ion-button (click)="showCurrentCity()">Ver datos geolocalización</ion-button>
+  <div *ngIf="currentCity">
+    Información para el país con coordenadas - Lon: {{longitud}}  Lat: {{latitud}}
+    <br>
+    Continente: {{ currentContinent }}
+    <br>
+    País: {{ currentCountry }}
+    <br>
+    Ciudad: {{ currentCity }}
+    <br>
+    Provincia: {{ countyCode }}
+    <br>
+    Código país: {{ countryCode }}
+  </div>
+  <br>
+  <ion-button routerLink="/home">Volver</ion-button>
+</ion-content>

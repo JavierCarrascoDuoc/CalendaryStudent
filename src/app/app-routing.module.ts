@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'product-add',
-    loadChildren: () => import('./product-add/product-add.module').then( m => m.ProductAddPageModule)
-  },
-  {
     path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: '',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+
   },
   {
     path: '',
@@ -32,22 +25,6 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
-  },
-  {
-    path: 'product-all',
-    loadChildren: () => import('./product-all/product-all.module').then( m => m.ProductAllPageModule)
-  },
-  {
-    path: 'product-detail/:id',
-    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
-  },
-  {
-    path: 'product-edit/:id',
-    loadChildren: () => import('./product-edit/product-edit.module').then( m => m.ProductEditPageModule)
-  },
-  {
-    path: 'product-list',
-    loadChildren: () => import('./product-list/product-list.module').then( m => m.ProductListPageModule)
   },
   {
     path: 'usuario-add',
@@ -85,7 +62,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'camara',
     loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
   },
@@ -93,12 +71,28 @@ const routes: Routes = [
     path: 'localizacion',
     loadChildren: () => import('./localizacion/localizacion.module').then( m => m.LocalizacionPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+
+  {
+    path: 'calendar',
+    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },  {
+    path: 'others',
+    loadChildren: () => import('./others/others.module').then( m => m.OthersPageModule)
+  }
 
 
 ];
 
 @NgModule({
-  imports: [
+  imports: [  
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]

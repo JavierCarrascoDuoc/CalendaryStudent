@@ -3,41 +3,29 @@
 
 <ion-content  class="gradient-background">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
+  <div class="ion-page" id="main-content">
+    <ion-content class="ion-padding">
   <div class="header" >
     <h1 class="custom-margin">¡Bienvenido a tu Calendario Estudiantil, {{ userEmail }}!</h1>
-
     <img src="../../assets/img/books.png" alt="Imagen de bienvenida">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/calendar">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Administrador</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="settings" routerLink="/calendar">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="settings" routerLink="/others">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Otros</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
   </div>
-
-  <div class="button-container">
-
-    <ion-button color="dark" id="certamenes">Certamenes</ion-button>
-    <ion-button color="dark" id="controles">Controles</ion-button>
-    <ion-button color="dark" id="trabajos">Trabajos Practicos</ion-button>
-
-    <ion-modal trigger="certamenes" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Seccion no disponible</div>
-      </ng-template>
-    </ion-modal>
-
-    <ion-modal trigger="controles" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Seccion no disponible</div>
-      </ng-template>
-    </ion-modal>
-
-    <ion-modal trigger="trabajos" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Seccion no disponible</div>
-      </ng-template>
-    </ion-modal>
-
-    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Seccion no disponible</div>
-      </ng-template>
-    </ion-modal>
+    </ion-content>
   </div>
+  
 </ion-content>

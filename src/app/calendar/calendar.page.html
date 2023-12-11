@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">calendar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <br>
+    <ion-label>Choose an Option</ion-label>
+    <ion-select [(ngModel)]="selectedOption"  (ionChange)="onSelectionChange()" placeholder="Selecciona un certámen">
+      <ion-select-option value="Tarea">Tarea</ion-select-option>
+      <ion-select-option value="Prueba">Prueba</ion-select-option>
+      <ion-select-option value="CERTAMEN23">Examen</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <div *ngIf="showButtonAdd">
+    <ion-button  (click)="addTest()">Agregar certamen</ion-button>
+  </div>
+
+  <div *ngIf="products.length > 0">
+    <ion-grid [fixed]="true" id="certamenTabla">
+      <ion-row>
+        <ion-col>Id producto</ion-col>
+        <ion-col>Certamen</ion-col>
+        <ion-col>Nombre</ion-col>
+        <ion-col>Fecha entrega</ion-col>
+        <ion-col>Editar</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let product of products">
+        <ion-col>{{ product.idProducto }}</ion-col>
+        <ion-col>{{ product.direccion }}</ion-col>
+        <ion-col>{{ product.nombreprod }}</ion-col>
+        <ion-col>{{ formatDate(product.enfermedad) }}</ion-col>
+        <ion-col><ion-button (click)="presentModal(product.idProducto)">Editar</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button (click)="exportToExcel('MyExcelFile')">Export to Excel</ion-button>
+  </div>
+  <div *ngIf="products.length === 0 && showButtonAdd ">
+      No se encontró ningún certamen para la búsqueda 
+    <ion-icon name="sad" size="large" color="warning"></ion-icon>
+  </div>
+  <br>
+  <ion-button routerLink="/home">Volver</ion-button>
+</ion-content>
+
+

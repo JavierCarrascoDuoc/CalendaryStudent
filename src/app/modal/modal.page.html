@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{setTitle()}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Your modal content here -->
+  <ion-list>
+      <ion-label>Nombre: </ion-label>
+      <ion-input [(ngModel)]="type" (keyup)="checkForm(1)" (ionBlur)="checkForm(1)" type="text" maxlength="10"></ion-input>
+      <ion-text color="danger" *ngIf="nombreProducto.length < 1 && checkNombreProducto">
+        Debe ingresar un nombre
+      </ion-text>
+      <br>
+      <ion-label>Evento: </ion-label>
+      <ion-input [(ngModel)]="direccion" (keyup)="checkForm(2)" (ionBlur)="checkForm(2)" type="text" maxlength="10"></ion-input>
+      <ion-text color="danger" *ngIf="direccion.length < 1 && checkEvento">
+        Debe ingresar un evento
+      </ion-text>
+      <br>
+      <ion-label>Cantidad: </ion-label>
+      <ion-input [(ngModel)]="cantidad" (keyup)="checkForm(3)" (ionBlur)="checkForm(3)" type="number" maxlength="3"></ion-input>
+      <ion-text color="danger" *ngIf="cantidad <= 0 && checkCantidad">
+        Debe ingresar la cantidad
+      </ion-text>
+      <ion-text color="danger" *ngIf="cantidad > 3 && checkCantidad">
+        La cantidad no puede ser mayor a 3
+      </ion-text>
+      <br>
+      <ion-item>
+        <ion-label>Fecha de entrega</ion-label>
+        <ion-datetime presentation="date-time" prefer-wheel="true" displayFormat="DD/MM/YYYY" [(ngModel)]="selectedDate" (ionChange)="onDateChange($event)"></ion-datetime>
+      </ion-item>
+  </ion-list>
+  <ion-button *ngIf="!items" [disabled]="formDisabled" (click)="sendPostRequest()">Agregar</ion-button>
+  <ion-button *ngIf="items" (click)="sendPutRequest()">Confirmar</ion-button>
+</ion-content>
