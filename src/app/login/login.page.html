@@ -24,12 +24,8 @@
           <br>
           <ion-item class="ion-transparent">
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" ngModel required name="password" #password="ngModel" pattern="^(?=.*[A-Z]).{8,}$"></ion-input>
-          </ion-item>
-          <ion-item *ngIf="password.errors && password.errors['pattern'] && (password.dirty || password.touched)">
-            <ion-text color="danger">La contraseña debe contener al menos 8 caracteres y una letra mayúscula.</ion-text>
-          </ion-item>
-          
+            <ion-input type="password" ngModel required name="password" #password="ngModel"></ion-input>
+          </ion-item>          
           <br>
           <br>
           <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
@@ -38,6 +34,10 @@
 
         <p style="text-align: center; margin-top: 20px;">
           <a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>
+        </p>
+
+        <p style="text-align: center; margin-top: 20px;">
+          <a routerLink="/register">Registrarse</a>
         </p>
         
       </ion-card-content>

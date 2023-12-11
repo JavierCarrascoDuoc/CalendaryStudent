@@ -19,6 +19,7 @@ export class ClProducto {
     cantidad: number;
     fecha: Date;
   
+
     // si no Inicializo los valores, da Error
       constructor(obj: any){
           this.id = obj && obj.id || null

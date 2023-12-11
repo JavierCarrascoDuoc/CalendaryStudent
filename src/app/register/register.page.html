@@ -1,0 +1,50 @@
+<ion-content class="gradient-background">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <div class="header">
+    <h1 class="custom-margin">¡Regístrate en Calendary Student!</h1>
+  </div>
+  
+  <ion-content class="gradient-background">
+    <div class="center-container">
+      <ion-card class="tarjeta-transparente">
+        <ion-card-header>
+          <ion-card-title class="credenciales-login">Registro</ion-card-title>
+        </ion-card-header>
+        <br>
+        <ion-card-content>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <ion-item class="ion-transparent">
+              <ion-label position="floating">Correo electrónico</ion-label>
+              <ion-input type="email" [(ngModel)]="userEmail" required name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="email.invalid && (email.dirty || email.touched)">
+              <ion-text color="danger">Por favor, ingrese un correo electrónico válido</ion-text>
+            </ion-item>
+            <br>
+            <ion-item class="ion-transparent">
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input type="password" ngModel required name="password" #password="ngModel" pattern="^(?=.*[A-Z]).{8,}$"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="password.errors && password.errors['pattern'] && (password.dirty || password.touched)">
+              <ion-text color="danger">La contraseña debe contener al menos 8 caracteres y una letra mayúscula.</ion-text>
+            </ion-item>
+            <br>
+            <ion-item class="ion-transparent">
+              <ion-label position="floating">Confirmar Contraseña</ion-label>
+              <ion-input type="password" ngModel required name="confirmPassword"></ion-input>
+            </ion-item>
+            <br>
+            <br>
+            <ion-button expand="block" type="submit">Registrarse</ion-button>
+          </form>
+
+          <p style="text-align: center; margin-top: 20px;">
+            ¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a>
+          </p>
+          
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+</ion-content>

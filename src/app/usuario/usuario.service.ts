@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Usuario} from './model/Usuario';
 
+
 // Importamos  las librerías necesarias
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 
 // creamos Constantes que utilizaremos en el envio
 const apiUrl = "http://localhost:3000/usuarios";
@@ -80,6 +81,23 @@ export class UsuarioServiceService {
         catchError(this.handleError<any>('updateUsuario'))
       );
   }
+
+  //  Obtener un Producto
+  getUsuarioLogin(email: string, clave: string): Observable<Usuario> {
+    console.log("getUsuario Email:" + email + ", Password: " + clave);
+    //const url = '${apiUrl}/${id}';
+    //return this.http.get<Producto>(url).pipe(
+      let params = new HttpParams()
+      .set('email', email)
+      .set('password', clave);
+
+    return this.http.get<Usuario>(apiUrl, { params })
+      .pipe(
+        tap(_ => console.log(`fetched usuario email=${email}`)),
+        catchError(this.handleError<Usuario>(`getUsuario email=${email}`))
+      );
+  }
+
 
 
 }
