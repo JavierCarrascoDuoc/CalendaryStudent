@@ -4,7 +4,11 @@ ion-grid {
       ion-col {
         border: 1px solid #e0e0e0;
         text-align: center;
+        width: 0%;
       }
     }
   }
   
+  ion-button{
+    width: -webkit-fill-available;
+  }
